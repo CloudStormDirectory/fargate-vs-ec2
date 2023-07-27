@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+
+  python:
+    build:
+      context: ./python
+    volumes:
+      - ./python/server.py/:/app/server.py
+    ports:
+      - 8000:8000
+
+  golang:
+    build:
+      context: ./golang
+      target: dev
+    volumes:
+      - ./golang/server.go/:/app/server.go
+    ports:
+      - 8001:8000
